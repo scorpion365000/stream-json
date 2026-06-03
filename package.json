@@ -74,7 +74,10 @@
     "test": "tests"
   },
   "dependencies": {
-    "stream-chain": "^4.2.2"
+
+    "@yahyasimple365/stream-chain-fork": "^4.2.2"
+
+
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
