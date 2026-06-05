@@ -1,0 +1,200 @@
+name: Security + Build + Hash + Publish
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      # ----------------------------
+      # 1️⃣ Checkout
+      # ----------------------------
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ----------------------------
+      # 2️⃣ Node setup
+      # ----------------------------
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # ----------------------------
+      # 3️⃣ Install security tools
+      # ----------------------------
+      - name: Install Socket
+        run: npm install -g socket
+
+      # ----------------------------
+      # 4️⃣ SECURITY SCANS
+      # ----------------------------
+      - name: Socket Scan
+        env:
+          SOCKET_CLI_API_TOKEN: ${{ secrets.SOCKET_API_KEY }}
+        run: socket ci --fail-on=policy
+
+      - name: OSV Scan
+        run: |
+          curl -L -o osv https://github.com/google/osv-scanner/releases/latest/download/osv-scanner_linux_amd64
+          chmod +x osv
+          ./osv --recursive . --format json --output osv.json
+
+      - name: Fail OSV if issues
+        run: |
+          VULN=$(jq '[.results[]?.packages[]?.vulnerabilities[]?] | length // 0' osv.json)
+          if [ "$VULN" -gt 0 ]; then
+            echo "Vulnerabilities found"
+            exit 1
+          fi
+
+      # ----------------------------
+      # 5️⃣ CodeQL (LOCAL ONLY)
+      # ----------------------------
+      - name: Download CodeQL Bundle
+        run: |
+          CODEQL_VERSION=2.22.1
+          wget -q \
+            https://github.com/github/codeql-action/releases/download/codeql-bundle-v${CODEQL_VERSION}/codeql-bundle-linux64.tar.gz \
+            -O codeql-bundle-linux64.tar.gz
+
+          mkdir -p codeql
+          tar -xzf codeql-bundle-linux64.tar.gz -C codeql --strip-components=1
+          echo "$PWD/codeql" >> $GITHUB_PATH
+
+      - name: Create CodeQL Database
+        run: |
+          codeql database create codeql-db \
+            --language=javascript \
+            --source-root=. \
+            --codescanning-config=./codeql-config.yml
+
+      - name: Run CodeQL Analysis
+        run: |
+          mkdir -p codeql-results
+
+          codeql database analyze \
+            codeql-db \
+            --format=sarif-latest \
+            --output=codeql-results/results.sarif
+
+      - name: Fail on CodeQL Findings
+        run: |
+          SARIF=codeql-results/results.sarif
+
+          ALERTS=$(jq '[.runs[].results[]?] | length' "$SARIF")
+          echo "CodeQL alerts: $ALERTS"
+
+          if [ "$ALERTS" -gt 0 ]; then
+            echo "❌ CodeQL detected issues:"
+            jq -r '
+              .runs[].results[] |
+              "\(.ruleId) [\(.level)] \(.message.text) (\(.locations[0].physicalLocation.artifactLocation.uri):\(.locations[0].physicalLocation.region.startLine))"
+            ' "$SARIF"
+            exit 1
+          fi
+
+          echo "✅ No CodeQL findings"
+
+      # ----------------------------
+      # 6️⃣ Install dependencies
+      # ----------------------------
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      # ----------------------------
+      # 7️⃣ Build
+      # ----------------------------
+      - name: Build project
+        run: npm run build --if-present
+
+      # ----------------------------
+      # 8️⃣ Pack artifact
+      # ----------------------------
+      - name: Create npm package tarball
+        run: |
+          npm pack
+          TAR=$(ls *.tgz | head -n 1)
+          echo "TAR=$TAR" >> $GITHUB_ENV
+
+      # ----------------------------
+      # 9️⃣ Hash tarball
+      # ----------------------------
+      - name: Generate SHA512 hash
+        run: |
+          HASH=$(sha512sum "$TAR" | awk '{print $1}')
+          echo "HASH=$HASH" >> $GITHUB_ENV
+
+      # ----------------------------
+      # 🔟 Create hash request files
+      # ----------------------------
+      - name: Create hash request files
+        run: |
+          mkdir -p out
+
+          echo '{
+            "name": "'"$(node -p "require('./package.json').name")"'",
+            "version": "'"$(node -p "require('./package.json').version")"'",
+            "tarball": "'"$TAR"'",
+            "sha512": "'"$HASH"'",
+            "commit": "'"${{ github.sha }}"'"
+          }' > out/private-hash.json
+
+          echo '{
+            "dependencies": '"$(node -p "JSON.stringify(require('./package.json').dependencies || {})")"'
+          }' > out/hash-update-request.json
+
+      # ----------------------------
+      # 1️⃣1️⃣ Publish to Verdaccio
+      # ----------------------------
+      - name: Setup Verdaccio auth
+        run: |
+          REGISTRY=${{ vars.VERDACCIO_REGISTRY }}
+          REGISTRY=${REGISTRY#https://}
+          REGISTRY=${REGISTRY#http://}
+          REGISTRY=${REGISTRY%/}
+
+          echo "REGISTRY=$REGISTRY" >> $GITHUB_ENV
+
+          echo "//${REGISTRY}/:_authToken=${{ secrets.VERDACCIO_TOKEN }}" > ~/.npmrc
+          echo "registry=https://${REGISTRY}/" >> ~/.npmrc
+
+      - name: Publish package
+        run: npm publish --registry https://$REGISTRY/
+
+      # ----------------------------
+      # 1️⃣2️⃣ UPDATE HASH REPO (ONLY AFTER SUCCESS)
+      # ----------------------------
+      - name: Clone hash repo
+        run: |
+          git clone https://x-access-token:${{ secrets.PAT_TOKEN_FOR_YAHYEAPPS2022 }}@github.com/yahyeapps-org/package-hashes.git
+
+          cd package-hashes
+
+          mkdir -p private-hashes
+          mkdir -p hash_updates
+
+          REPO_NAME=$(basename "${{ github.repository }}")
+
+          mv ../out/hash-update-request.json hash_updates/$REPO_NAME.json
+          mv ../out/private-hash.json private-hashes/$REPO_NAME.json
+
+      - name: Commit hash update
+        working-directory: package-hashes
+        run: |
+          git config user.name "hashes-bot"
+          git config user.email "hashes-bot@users.noreply.github.com"
+
+          git pull --rebase
+          git add .
+
+          git commit -m "Update hashes for ${{ github.repository }}" || exit 0
+          git push
