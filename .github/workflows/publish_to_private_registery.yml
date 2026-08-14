@@ -58,10 +58,12 @@ jobs:
 
           curl \
             --fail-with-body \
+            --show-error \
+            --verbose \
             -X POST "${DEPLOYER_WEBHOOK_URL}/trigger_scan" \
             -H "Content-Type: application/json" \
             -H "user-password: ${TRIGGER_USER_PASSWORD}" \
-            --data @app_info.json
+            --data-binary @app_info.json
 
       - name: Wait for deployment result
         env:
