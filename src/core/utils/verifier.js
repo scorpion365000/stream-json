@@ -10,9 +10,9 @@
 // validates structure only — no tokens are emitted; line/pos/offset tracking
 // (updatePos) is kept byte-exact for error reporting.
 
-import {flushable, gen, none} from 'stream-chain/core';
+import {flushable, gen, none} from '@yahyeapps/stream-chain/core';
 
-import fixUtf8Stream from 'stream-chain/utils/fixUtf8Stream.js';
+import fixUtf8Stream from '@yahyeapps/stream-chain/utils/fixUtf8Stream.js';
 
 const patterns = {
   string: /[^\x00-\x1f\"\\]{1,256}|\\[bfnrt\"\\/]|\\u[\da-fA-F]{4}|\"/y,

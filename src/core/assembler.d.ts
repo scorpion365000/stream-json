@@ -1,4 +1,4 @@
-import type {none} from 'stream-chain/defs.js';
+import type {none} from '@yahyeapps/stream-chain/defs.js';
 
 import type {Token} from './parser.js';
 

@@ -1,6 +1,6 @@
 import type {Duplex, Writable} from 'node:stream';
 
-import {none} from 'stream-chain/defs.js';
+import {none} from '@yahyeapps/stream-chain/defs.js';
 import test from 'tape-six';
 import parserStream, {parser as parserNamed} from '../../src/index.js';
 import parser from '../../src/parser.js';

@@ -1,6 +1,6 @@
 // @ts-self-types="./verifier.d.ts"
 
-import {asWebStream} from 'stream-chain/web';
+import {asWebStream} from '@yahyeapps/stream-chain/web';
 
 import factory from '../../core/utils/verifier.js';
 

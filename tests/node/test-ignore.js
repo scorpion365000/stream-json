@@ -1,5 +1,5 @@
 import test from 'tape-six';
-import chain from 'stream-chain';
+import chain from '@yahyeapps/stream-chain';
 
 import ignore from '../../src/filters/ignore.js';
 import streamArray from '../../src/streamers/stream-array.js';

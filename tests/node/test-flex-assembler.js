@@ -1,5 +1,5 @@
 import test from 'tape-six';
-import chain from 'stream-chain';
+import chain from '@yahyeapps/stream-chain';
 
 import parserStream, {parser} from '../../src/index.js';
 import FlexAssembler, {flexAssembler} from '../../src/utils/flex-assembler.js';

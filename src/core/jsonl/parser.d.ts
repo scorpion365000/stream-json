@@ -49,7 +49,7 @@ declare namespace parser {
    * skip sentinel (`none`) for empty / dropped lines.
    */
   export function jsonlParser<T = unknown>(options?: JsonlParserOptions): (line: string) => JsonlItem<T> | symbol;
-  /** Self-reference for backwards compat: `import {parser} from 'stream-json/core/jsonl/parser.js'`. */
+  /** Self-reference for backwards compat: `import {parser} from '@yahyeapps/stream-json/core/jsonl/parser.js'`. */
   export const parser: typeof import('./parser.js').default;
 }
 
@@ -58,7 +58,7 @@ type JsonlItem<T = unknown> = parser.JsonlItem<T>;
 /**
  * Top-level alias of `parser.jsonlParser` — the raw per-line parser factory with
  * no `fixUtf8Stream()` / line-splitting front. Re-exported for direct import:
- * `import {jsonlParser} from 'stream-json/core/jsonl/parser.js'`.
+ * `import {jsonlParser} from '@yahyeapps/stream-json/core/jsonl/parser.js'`.
  *
  * @param options - Parser configuration including reviver and error handling.
  * @returns A function that parses one full JSON line into a {@link JsonlItem}, or a

@@ -38,7 +38,7 @@ type JsonlItem<T = unknown> = parser.JsonlItem<T>;
 /**
  * Top-level alias of the core `jsonlParser` — the raw per-line parser factory with
  * no `fixUtf8Stream()` / line-splitting front. Re-exported for direct import:
- * `import {jsonlParser} from 'stream-json/jsonl/parser.js'`.
+ * `import {jsonlParser} from '@yahyeapps/stream-json/jsonl/parser.js'`.
  */
 declare const jsonlParser: typeof import('../core/jsonl/parser.js').jsonlParser;
 

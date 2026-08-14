@@ -1,6 +1,6 @@
 import type {Duplex} from 'node:stream';
-import type {Flushable, Many} from 'stream-chain/defs.js';
-import {none} from 'stream-chain/defs.js';
+import type {Flushable, Many} from '@yahyeapps/stream-chain/defs.js';
+import {none} from '@yahyeapps/stream-chain/defs.js';
 
 import test from 'tape-six';
 import parser from '../../src/parser.js';

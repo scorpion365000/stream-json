@@ -67,12 +67,12 @@ const NODE_BUILTINS = new Set([
 // `stream-chain/jsonl/stringerStream.js`) or other deps' Node entries would pull
 // `node:*` transitively but the relative-only walker can't detect that.
 const CORE_ALLOWED_BARE_SPECIFIERS = new Set([
-  'stream-chain/core',
-  'stream-chain/defs.js',
-  'stream-chain/jsonl/parser.js',
-  'stream-chain/utils/batch.js',
-  'stream-chain/utils/fixUtf8Stream.js',
-  'stream-chain/utils/lines.js'
+  '@yahyeapps/stream-chain/core',
+  '@yahyeapps/stream-chain/defs.js',
+  '@yahyeapps/stream-chain/jsonl/parser.js',
+  '@yahyeapps/stream-chain/utils/batch.js',
+  '@yahyeapps/stream-chain/utils/fixUtf8Stream.js',
+  '@yahyeapps/stream-chain/utils/lines.js'
 ]);
 
 // Type-level Node-stream leak patterns. `extends DuplexOptions` (etc.) declares a

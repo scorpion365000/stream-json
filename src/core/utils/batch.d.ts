@@ -1,4 +1,4 @@
-import {Flushable, none} from 'stream-chain/defs.js';
+import {Flushable, none} from '@yahyeapps/stream-chain/defs.js';
 
 /**
  * Creates a flushable batch function that groups incoming items into arrays.

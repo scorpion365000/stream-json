@@ -3,7 +3,7 @@
 // drain — identical pipeline construction modulo source paths).
 
 import test from 'tape-six';
-import {chain} from 'stream-chain/web';
+import {chain} from '@yahyeapps/stream-chain/web';
 
 import filter from '../../src/web/filters/filter.js';
 import {assembler} from '../../src/web/assembler.js';

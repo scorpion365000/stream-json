@@ -1,6 +1,6 @@
 // @ts-self-types="./filter-base.d.ts"
 
-import {flushable, many, none, combineManyMut} from 'stream-chain/core';
+import {flushable, many, none, combineManyMut} from '@yahyeapps/stream-chain/core';
 
 const checkableTokens = {
     startObject: 1,

@@ -1,4 +1,4 @@
-import type {Flushable} from 'stream-chain/defs.js';
+import type {Flushable} from '@yahyeapps/stream-chain/defs.js';
 
 import type {ParserOptions, Token} from '../parser.js';
 

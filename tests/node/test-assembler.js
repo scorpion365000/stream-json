@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import zlib from 'node:zlib';
 
 import test from 'tape-six';
-import chain from 'stream-chain';
+import chain from '@yahyeapps/stream-chain';
 
 import parserStream, {parser} from '../../src/index.js';
 import Assembler, {assembler} from '../../src/assembler.js';

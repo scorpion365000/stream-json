@@ -1,5 +1,5 @@
 import {test} from 'tape-six';
-import {flushable, none} from 'stream-chain/core';
+import {flushable, none} from '@yahyeapps/stream-chain/core';
 
 import pipe from '../../src/core/utils/pipe.js';
 import drain from '../../src/core/utils/drain.js';

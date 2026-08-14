@@ -1,6 +1,6 @@
 // @ts-self-types="./batch.d.ts"
 
-import scBatch from 'stream-chain/utils/batch.js';
+import scBatch from '@yahyeapps/stream-chain/utils/batch.js';
 
 const parseBatchSize = options => {
   let n = 1000;

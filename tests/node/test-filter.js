@@ -1,5 +1,5 @@
 import test from 'tape-six';
-import chain from 'stream-chain';
+import chain from '@yahyeapps/stream-chain';
 
 import filter from '../../src/filters/filter.js';
 import {assembler} from '../../src/assembler.js';

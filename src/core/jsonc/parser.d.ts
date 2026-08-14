@@ -1,4 +1,4 @@
-import {Flushable, Many, none} from 'stream-chain/defs.js';
+import {Flushable, Many, none} from '@yahyeapps/stream-chain/defs.js';
 
 import type {Token as BaseToken} from '../parser.js';
 
@@ -68,7 +68,7 @@ declare namespace parser {
     streamCommas?: boolean;
   }
 
-  /** Self-reference for backwards compat: `import {parser} from 'stream-json/core/jsonc/parser.js'`. */
+  /** Self-reference for backwards compat: `import {parser} from '@yahyeapps/stream-json/core/jsonc/parser.js'`. */
   export const parser: typeof import('./parser.js').default;
 }
 

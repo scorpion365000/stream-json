@@ -1,6 +1,6 @@
 // @ts-self-types="./stream-array.d.ts"
 
-import {none} from 'stream-chain/core';
+import {none} from '@yahyeapps/stream-chain/core';
 
 import streamBase from './stream-base.js';
 const streamArray = options => {

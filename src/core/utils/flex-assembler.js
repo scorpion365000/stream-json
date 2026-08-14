@@ -1,6 +1,6 @@
 // @ts-self-types="./flex-assembler.d.ts"
 
-import {none} from 'stream-chain/core';
+import {none} from '@yahyeapps/stream-chain/core';
 
 const compileFilter = (filter, separator) => {
   if (typeof filter == 'function') return filter;

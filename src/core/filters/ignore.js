@@ -1,6 +1,6 @@
 // @ts-self-types="./ignore.d.ts"
 
-import {none} from 'stream-chain/core';
+import {none} from '@yahyeapps/stream-chain/core';
 
 import {filterBase, makeStackDiffer} from './filter-base.js';
 const ignore = options => {

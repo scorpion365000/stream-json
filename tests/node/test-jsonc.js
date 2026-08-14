@@ -1,6 +1,6 @@
 import test from 'tape-six';
-import chain from 'stream-chain';
-import {none} from 'stream-chain/core';
+import chain from '@yahyeapps/stream-chain';
+import {none} from '@yahyeapps/stream-chain/core';
 
 import jsoncParser from '../../src/jsonc/parser.js';
 import jsoncStringer from '../../src/jsonc/stringer.js';

@@ -1,6 +1,6 @@
 // @ts-self-types="./stream-base.d.ts"
 
-import {none} from 'stream-chain/core';
+import {none} from '@yahyeapps/stream-chain/core';
 
 import {assembler} from '../assembler.js';
 

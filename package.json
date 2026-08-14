@@ -1,6 +1,6 @@
 {
-  "name": "@yahyasimple365/stream-json-fork",
-  "version": "3.3.0",
+  "name": "@yahyeapps/stream-json",
+  "version": "3.3.2",
   "description": "A micro-library of stream components for building custom JSON and JSONC processing pipelines with a minimal memory footprint — parse, filter, and transform JSON far larger than available memory with a SAX-inspired token API, on Node.js or Web Streams.",
   "type": "module",
   "main": "./src/index.js",
@@ -74,10 +74,7 @@
     "test": "tests"
   },
   "dependencies": {
-
-    "@yahyasimple365/stream-chain-fork": "^4.2.2"
-
-
+    "@yahyeapps/stream-chain": "^4.2.2"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
@@ -99,11 +96,11 @@
       "imports": {
         "tape-six": "/node_modules/tape-six/index.js",
         "tape-six/": "/node_modules/tape-six/src/",
-        "stream-chain": "/node_modules/stream-chain/src/node/index.js",
-        "stream-chain/node": "/node_modules/stream-chain/src/node/index.js",
-        "stream-chain/web": "/node_modules/stream-chain/src/web/index.js",
-        "stream-chain/core": "/node_modules/stream-chain/src/core/index.js",
-        "stream-chain/": "/node_modules/stream-chain/src/"
+        "@yahyeapps/stream-chain": "/node_modules/@yahyeapps/stream-chain/src/node/index.js",
+        "@yahyeapps/stream-chain/node": "/node_modules/@yahyeapps/stream-chain/src/node/index.js",
+        "@yahyeapps/stream-chain/web": "/node_modules/@yahyeapps/stream-chain/src/web/index.js",
+        "@yahyeapps/stream-chain/core": "/node_modules/@yahyeapps/stream-chain/src/core/index.js",
+        "@yahyeapps/stream-chain/": "/node_modules/@yahyeapps/stream-chain/src/"
       }
     }
   }

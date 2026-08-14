@@ -4,9 +4,9 @@
 // stream. Composes as the first element of a `gen([…])` pipeline; the chain is
 // driven by passing the path as the gen input value.
 //
-//   import {pipe} from 'stream-json/utils/pipe.js';
-//   import {drain} from 'stream-json/utils/drain.js';
-//   import {parseFile} from 'stream-json/file/parser.js';
+//   import {pipe} from '@yahyeapps/stream-json/utils/pipe.js';
+//   import {drain} from '@yahyeapps/stream-json/utils/drain.js';
+//   import {parseFile} from '@yahyeapps/stream-json/file/parser.js';
 //
 //   const c = pipe([parseFile(), /* downstream stages */]);
 //   await drain(c('input.json'));
@@ -16,7 +16,7 @@
 // `jsonParser` flushable. The factory returns the composed `fList` from
 // `gen(…)` so it drops transparently into any chain. Node-only.
 
-import {gen} from 'stream-chain/core';
+import {gen} from '@yahyeapps/stream-chain/core';
 import jsonParser from '../core/parser.js';
 import asyncBlockReader from './internal/block-reader.js';
 

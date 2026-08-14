@@ -1,7 +1,7 @@
 /// <reference types="node" />
 
 import {Duplex, DuplexOptions} from 'node:stream';
-import type {Flushable} from 'stream-chain/defs.js';
+import type {Flushable} from '@yahyeapps/stream-chain/defs.js';
 
 import type {ParserOptions, Token} from '../core/parser.js';
 

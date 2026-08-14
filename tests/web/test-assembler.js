@@ -2,7 +2,7 @@
 // See tests/web/test-stringer.js for the substrate-mirroring conventions.
 
 import test from 'tape-six';
-import {chain} from 'stream-chain/web';
+import {chain} from '@yahyeapps/stream-chain/web';
 
 import parserWebStream, {parser} from '../../src/web/index.js';
 import Assembler, {assembler} from '../../src/web/assembler.js';

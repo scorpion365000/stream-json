@@ -1,4 +1,4 @@
-import {Flushable, Many, none} from 'stream-chain/defs.js';
+import {Flushable, Many, none} from '@yahyeapps/stream-chain/defs.js';
 
 /**
  * Creates a streaming JSON parser that consumes text and produces a SAX-like token stream.
@@ -70,7 +70,7 @@ declare namespace parser {
     jsonStreaming?: boolean;
   }
 
-  /** Self-reference for backwards compat: `import {parser} from 'stream-json/core/parser.js'`. */
+  /** Self-reference for backwards compat: `import {parser} from '@yahyeapps/stream-json/core/parser.js'`. */
   export const parser: typeof import('./parser.js').default;
 }
 

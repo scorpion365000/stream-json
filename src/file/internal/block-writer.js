@@ -12,7 +12,7 @@
 // and JSONC `stringerToFile` factories.
 
 import {open} from 'node:fs/promises';
-import {flushable, none} from 'stream-chain/core';
+import {flushable, none} from '@yahyeapps/stream-chain/core';
 
 const DEFAULT_WRITE_BLOCK = 1 << 20; // 1 MB
 

@@ -1,5 +1,5 @@
 import type {Duplex} from 'node:stream';
-import {none} from 'stream-chain/defs.js';
+import {none} from '@yahyeapps/stream-chain/defs.js';
 
 import test from 'tape-six';
 import filterBase from '../../src/filters/filter-base.js';

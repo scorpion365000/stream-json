@@ -1,4 +1,4 @@
-import {Flushable, Many, none} from 'stream-chain/defs.js';
+import {Flushable, Many, none} from '@yahyeapps/stream-chain/defs.js';
 import parser from '../parser.js';
 
 /**
@@ -69,7 +69,7 @@ type FilterBaseOptions = filterBase.FilterBaseOptions;
 type FilterBaseConfig = filterBase.FilterBaseConfig;
 /**
  * Top-level alias of `filterBase.makeStackDiffer` — re-exported for direct
- * import: `import {makeStackDiffer} from 'stream-json/filters/filter-base.js'`.
+ * import: `import {makeStackDiffer} from '@yahyeapps/stream-json/filters/filter-base.js'`.
  *
  * Creates a function that emits structural tokens (start/end object/array, key)
  * to reconstruct the surrounding JSON envelope between two stack positions.

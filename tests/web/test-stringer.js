@@ -10,7 +10,7 @@
 // whichever substrate it was imported from.
 
 import test from 'tape-six';
-import {chain} from 'stream-chain/web';
+import {chain} from '@yahyeapps/stream-chain/web';
 
 import {parser} from '../../src/web/parser.js';
 import stringer from '../../src/web/stringer.js';

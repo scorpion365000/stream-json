@@ -1,6 +1,6 @@
 // @ts-self-types="./ignore.d.ts"
 
-import {asWebStream} from 'stream-chain/web';
+import {asWebStream} from '@yahyeapps/stream-chain/web';
 
 import factory from '../../core/filters/ignore.js';
 import withParser from '../utils/with-parser.js';

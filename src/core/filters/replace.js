@@ -1,6 +1,6 @@
 // @ts-self-types="./replace.d.ts"
 
-import {many, none, combineManyMut, getManyValues, isMany} from 'stream-chain/core';
+import {many, none, combineManyMut, getManyValues, isMany} from '@yahyeapps/stream-chain/core';
 
 import {filterBase, makeStackDiffer} from './filter-base.js';
 const defaultReplacement = () => none;

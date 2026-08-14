@@ -1,4 +1,4 @@
-import {Flushable, none} from 'stream-chain/defs.js';
+import {Flushable, none} from '@yahyeapps/stream-chain/defs.js';
 
 /**
  * Creates a composable JSONC validator pipeline.
@@ -36,7 +36,7 @@ declare namespace verifier {
     offset: number;
   }
 
-  /** Self-reference for backwards compat: `import {verifier} from 'stream-json/core/jsonc/verifier.js'`. */
+  /** Self-reference for backwards compat: `import {verifier} from '@yahyeapps/stream-json/core/jsonc/verifier.js'`. */
   export const verifier: typeof import('./verifier.js').default;
 }
 

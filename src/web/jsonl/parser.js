@@ -1,6 +1,6 @@
 // @ts-self-types="./parser.d.ts"
 
-import factory, {jsonlParser} from 'stream-chain/web/jsonl/parser.js';
+import factory, {jsonlParser} from '@yahyeapps/stream-chain/web/jsonl/parser.js';
 
 const parser = options => factory(options);
 

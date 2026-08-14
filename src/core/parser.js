@@ -9,8 +9,8 @@
 // back to the incremental regex state machine below, preserving exact
 // resumability and error behavior.
 
-import {flushable, gen, many, none} from 'stream-chain/core';
-import fixUtf8Stream from 'stream-chain/utils/fixUtf8Stream.js';
+import {flushable, gen, many, none} from '@yahyeapps/stream-chain/core';
+import fixUtf8Stream from '@yahyeapps/stream-chain/utils/fixUtf8Stream.js';
 
 const patterns = {
   value1: /[\"\{\[\]\-\d]|true\b|false\b|null\b|\s{1,256}/y,

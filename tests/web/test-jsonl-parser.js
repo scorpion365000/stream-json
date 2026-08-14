@@ -3,7 +3,7 @@
 // on fs/zlib. See tests/web/test-stringer.js for the substrate-mirroring conventions.
 
 import test from 'tape-six';
-import {chain} from 'stream-chain/web';
+import {chain} from '@yahyeapps/stream-chain/web';
 
 import jsonlParser from '../../src/web/jsonl/parser.js';
 

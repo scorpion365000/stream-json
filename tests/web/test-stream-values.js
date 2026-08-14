@@ -2,7 +2,7 @@
 // substrate-mirroring conventions.
 
 import test from 'tape-six';
-import {chain} from 'stream-chain/web';
+import {chain} from '@yahyeapps/stream-chain/web';
 
 import streamValues from '../../src/web/streamers/stream-values.js';
 

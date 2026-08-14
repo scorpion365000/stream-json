@@ -1,6 +1,6 @@
 // @ts-self-types="./with-parser.d.ts"
 
-import {gen} from 'stream-chain/core';
+import {gen} from '@yahyeapps/stream-chain/core';
 
 import parser from '../parser.js';
 

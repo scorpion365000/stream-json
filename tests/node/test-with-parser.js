@@ -1,5 +1,5 @@
 import test from 'tape-six';
-import chain from 'stream-chain';
+import chain from '@yahyeapps/stream-chain';
 
 import withParser from '../../src/utils/with-parser.js';
 import streamArray from '../../src/core/streamers/stream-array.js';

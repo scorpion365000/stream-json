@@ -1,4 +1,4 @@
-import {Flushable, Many, none} from 'stream-chain/defs.js';
+import {Flushable, Many, none} from '@yahyeapps/stream-chain/defs.js';
 import parser from '../parser.js';
 import filterBase from './filter-base.js';
 

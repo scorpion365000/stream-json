@@ -1,7 +1,7 @@
 // @ts-self-types="./pick.d.ts"
 
-import {asStream} from 'stream-chain';
-import {asWebStream} from 'stream-chain/web';
+import {asStream} from '@yahyeapps/stream-chain';
+import {asWebStream} from '@yahyeapps/stream-chain/web';
 
 import factory from '../core/filters/pick.js';
 import withParser from '../utils/with-parser.js';

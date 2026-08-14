@@ -10,9 +10,9 @@
 // preserving exact resumability and error behavior. JSONC adds whitespace
 // tokens and `//` / `/*` comment tokens, handled inline during trivia scanning.
 
-import {flushable, gen, many, none} from 'stream-chain/core';
+import {flushable, gen, many, none} from '@yahyeapps/stream-chain/core';
 
-import fixUtf8Stream from 'stream-chain/utils/fixUtf8Stream.js';
+import fixUtf8Stream from '@yahyeapps/stream-chain/utils/fixUtf8Stream.js';
 
 const patterns = {
   string: /[^\x00-\x1f\"\\]{1,256}|\\[bfnrt\"\\\/]|\\u[\da-fA-F]{4}|\"/y,

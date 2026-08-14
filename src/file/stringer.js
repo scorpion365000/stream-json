@@ -6,10 +6,10 @@
 // use `pipe(...)` from `stream-json/utils/pipe.js` and drain via
 // `drain(...)` from `stream-json/utils/drain.js`.
 //
-//   import {pipe} from 'stream-json/utils/pipe.js';
-//   import {drain} from 'stream-json/utils/drain.js';
-//   import {parseFile} from 'stream-json/file/parser.js';
-//   import {stringerToFile} from 'stream-json/file/stringer.js';
+//   import {pipe} from '@yahyeapps/stream-json/utils/pipe.js';
+//   import {drain} from '@yahyeapps/stream-json/utils/drain.js';
+//   import {parseFile} from '@yahyeapps/stream-json/file/parser.js';
+//   import {stringerToFile} from '@yahyeapps/stream-json/file/stringer.js';
 //
 //   const c = pipe([parseFile(), /* … */, stringerToFile('out.json')]);
 //   await drain(c('input.json'));
@@ -19,7 +19,7 @@
 // fixed-size blocks via `fs/promises.write`; the writer's `final()` writes the
 // tail and closes the FileHandle on flush). Node-only.
 
-import {gen} from 'stream-chain/core';
+import {gen} from '@yahyeapps/stream-chain/core';
 import stringer from '../core/stringer.js';
 import asyncBlockWriter from './internal/block-writer.js';
 

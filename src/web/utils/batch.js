@@ -1,7 +1,7 @@
 // @ts-self-types="./batch.d.ts"
 
-import {asWebStream} from 'stream-chain/web';
-import scBatch from 'stream-chain/utils/batch.js';
+import {asWebStream} from '@yahyeapps/stream-chain/web';
+import scBatch from '@yahyeapps/stream-chain/utils/batch.js';
 
 import batch, {parseBatchSize} from '../../core/utils/batch.js';
 

@@ -1,7 +1,7 @@
 // @ts-self-types="./with-parser.d.ts"
 
-import {asStream} from 'stream-chain';
-import {asWebStream} from 'stream-chain/web';
+import {asStream} from '@yahyeapps/stream-chain';
+import {asWebStream} from '@yahyeapps/stream-chain/web';
 
 import withParser from '../core/utils/with-parser.js';
 

@@ -1,6 +1,6 @@
 // @ts-self-types="./stringer.d.ts"
 
-import {flushable, none} from 'stream-chain/core';
+import {flushable, none} from '@yahyeapps/stream-chain/core';
 
 const noCommaAfter = {startObject: 1, startArray: 1, endKey: 1, keyValue: 1},
   noSpaceAfter = {endObject: 1, endArray: 1, '': 1},

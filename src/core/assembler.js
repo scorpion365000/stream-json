@@ -1,6 +1,6 @@
 // @ts-self-types="./assembler.d.ts"
 
-import {none} from 'stream-chain/core';
+import {none} from '@yahyeapps/stream-chain/core';
 
 const startObject = Ctr =>
   /** @this {Assembler} */

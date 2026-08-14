@@ -1,6 +1,6 @@
 // @ts-self-types="./parser.d.ts"
 
-import {asWebStream} from 'stream-chain/web';
+import {asWebStream} from '@yahyeapps/stream-chain/web';
 
 import factory from '../../core/jsonc/parser.js';
 

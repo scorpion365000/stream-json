@@ -4,7 +4,7 @@
 // from a chain (it IS the whole pipeline); resolves on valid JSON, rejects with
 // the verifier's `{message, line, pos, offset}` error on invalid input.
 //
-//   import {verifyFile} from 'stream-json/file/verifier.js';
+//   import {verifyFile} from '@yahyeapps/stream-json/file/verifier.js';
 //   await verifyFile('candidate.json');                 // throws on invalid
 //
 // Internally: an `asyncBlockReader` source plus the existing `jsonVerifier`

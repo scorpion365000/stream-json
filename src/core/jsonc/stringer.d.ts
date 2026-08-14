@@ -1,4 +1,4 @@
-import {Flushable, none} from 'stream-chain/defs.js';
+import {Flushable, none} from '@yahyeapps/stream-chain/defs.js';
 
 /**
  * Creates a flushable function that converts a token stream (including JSONC
@@ -39,7 +39,7 @@ declare namespace stringer {
     useCommas?: boolean;
   }
 
-  /** Self-reference for backwards compat: `import {stringer} from 'stream-json/core/jsonc/stringer.js'`. */
+  /** Self-reference for backwards compat: `import {stringer} from '@yahyeapps/stream-json/core/jsonc/stringer.js'`. */
   export const stringer: typeof import('./stringer.js').default;
 }
 

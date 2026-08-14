@@ -2,7 +2,7 @@
 // See tests/web/test-stringer.js for the substrate-mirroring conventions.
 
 import test from 'tape-six';
-import {chain} from 'stream-chain/web';
+import {chain} from '@yahyeapps/stream-chain/web';
 
 import jsoncParser from '../../src/web/jsonc/parser.js';
 import jsoncStringer from '../../src/web/jsonc/stringer.js';

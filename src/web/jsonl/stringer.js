@@ -1,6 +1,6 @@
 // @ts-self-types="./stringer.d.ts"
 
-import factory from 'stream-chain/web/jsonl/stringer.js';
+import factory from '@yahyeapps/stream-chain/web/jsonl/stringer.js';
 
 const stringer = options => factory(options);
 

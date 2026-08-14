@@ -16,7 +16,7 @@
 // "drive one path through, await completion" shape: `await drain(pipe([…])
 // (path))`.
 
-import {gen, none} from 'stream-chain/core';
+import {gen, none} from '@yahyeapps/stream-chain/core';
 
 const pipe = (...stages) =>
   async function* (value) {

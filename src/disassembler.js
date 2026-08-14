@@ -1,7 +1,7 @@
 // @ts-self-types="./disassembler.d.ts"
 
-import {asStream} from 'stream-chain';
-import {asWebStream} from 'stream-chain/web';
+import {asStream} from '@yahyeapps/stream-chain';
+import {asWebStream} from '@yahyeapps/stream-chain/web';
 
 import factory from './core/disassembler.js';
 
